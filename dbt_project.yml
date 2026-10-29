@@ -1,0 +1,24 @@
+name: banking_project
+profile: banking_project
+version: '1.0'
+
+# Paths
+seed-paths: ["seeds"]
+model-paths: ["models"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Models configuration
+models:
+  banking_project:
+    +static_analysis: strict
+
+    staging:
+      +materialized: view
+
+    marts:
+      +materialized: table

@@ -1,0 +1,1 @@
+{{ test_accepted_values(column_name="branch_id", model=get_where_subquery(ref('int_transaction_details')), values=["BR001","BR002","BR003","BR004","BR005"]) }}
