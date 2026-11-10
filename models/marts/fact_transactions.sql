@@ -2,11 +2,12 @@
     config(
         materialized='incremental',
         incremental_strategy='merge',
-        unique_key='transaction_id'
-    )
+        unique_key='transaction_id',
+        on_schema_change='sync_all_columns'   )
 }}
 select
-  TRANSACTION_ID,
+{{dbt_utils.generate_surrogate_key(['transaction_id','ACCOUNT_ID'])}} as transaction_key,
+transaction_id,
     ACCOUNT_ID,
     TRANSACTION_TIMESTAMP,
     TRANSACTION_TYPE,
