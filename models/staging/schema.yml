@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: high_value_transactions
+    description: Contains transactions whose amount is greater than or equal to the configured high value threshold.
+
+    columns:
+      - name: transaction_key
+        description: Surrogate key for the transaction.
+        tests:
+          - not_null
+          - unique
+
+      - name: transaction_id
+        description: Unique transaction identifier from source.
+        tests:
+          - not_null
+
+      - name: account_id
+        description: Account associated with the transaction.
+        tests:
+          - not_null
+
+      - name: transaction_timestamp
+        description: Timestamp when the transaction occurred.
+        tests:
+          - not_null
+
+      - name: transaction_type
+        description: Type of transaction such as debit or credit.
+        tests:
+          - not_null
+
+      - name: transaction_channel
+        description: Channel through which transaction was performed.
+
+      - name: amount
+        description: Transaction amount.
+        tests:
+          - not_null
+          - test_positive_value
+
+      - name: transaction_status
+        description: Status of the transaction.
+
+      - name: updated_at
+        description: Last update timestamp.
