@@ -1,7 +1,6 @@
 {{config(materialized='view')}}
 
 select
-transaction_key,
 transaction_id,
     ACCOUNT_ID,
     TRANSACTION_TIMESTAMP,
