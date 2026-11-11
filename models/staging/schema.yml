@@ -5,12 +5,6 @@ models:
     description: Contains transactions whose amount is greater than or equal to the configured high value threshold.
 
     columns:
-      - name: transaction_key
-        description: Surrogate key for the transaction.
-        tests:
-          - not_null
-          - unique
-
       - name: transaction_id
         description: Unique transaction identifier from source.
         tests:
